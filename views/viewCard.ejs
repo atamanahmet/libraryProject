@@ -1,9 +1,11 @@
 <%- include("partials/header.ejs")%>
 
-<div class="card">
-    <h1>title</h1>
-    <p>author</p>
-    <p>release</p>
+<div class="cardContainer">
+    <img src="<%="https://covers.openlibrary.org/b/id/"+stuff.cover_i+"-L.jpg"%>" alt="">
+    <h1><%= stuff.title %></h1>
+    <p><%= stuff.author_name %></p>
+    <p>Released in: <%= stuff.first_publish_year %></p>
+    <a href="<%="https://openlibrary.org"+stuff.key%>">More about..</a>
 </div>
 
 

@@ -4,9 +4,10 @@
     
     <li>
         <form action="/viewCard" method="post">
-        <button type="submit" name="<%=JSON.stringify(stuff[i])%>" class="viewLink">
-        <%=stuff[i].title%>
-    </button>
+        <input type="submit" name="<%=stuff[i].author_key%>" class="viewLink" value="<%=stuff[i].title%>">
+        
+        
+    
 </form>
     </li>
 

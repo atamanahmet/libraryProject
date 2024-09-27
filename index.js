@@ -57,19 +57,24 @@ app.post("/search", async (req, res) => {
     console.log("Write Succesful");
   }
   res.locals.stuff = stuff;
- 
-    res.render("index.ejs", stuff);
+
+  res.render("index.ejs", stuff);
+
 
 });
 
 app.post("/viewCard", (req, res) => {
-  console.log(req.body);
-  var asd= JSON.stringify(req.body);
-  fs.writeFile("yaz.json", asd, (err)=>{
+  var key = Object.keys(req.body)[0];
+  stuff=JSON.parse(fs.readFileSync("tempdata.json", "utf-8", (err)=>{
     console.log(err);
-  })
-  // res.locals.stuff = JSON.parse(req.body);
-  console.log(stuff);
+  })) 
+  for (let i = 0; i < stuff.length; i++) {
+   if(stuff[i].author_key==key){
+    res.locals.stuff=stuff[i];
+   }
+    
+  }
+  
   res.render("viewCard.ejs", stuff);
 });
 
