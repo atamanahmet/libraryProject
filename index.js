@@ -28,17 +28,16 @@ app.post("/search", async (req, res) => {
 
   const url = "https://openlibrary.org/search.json?q=" + tempParams;
   try {
-    console.log(url);
+  
     const response = await axios.get(url);
     stuff = response.data.docs;
   } catch (error) {
     console.log(error.message);
   }
   res.locals.stuff = stuff;
-  console.log(stuff);
   res.render("index.ejs", stuff);
 });
 
 app.listen(port, (req, res) => {
-  console.log("listenin on port : " + port);
+  console.log("Listenin on port : " + port);
 });
