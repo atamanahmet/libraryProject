@@ -1,0 +1,16 @@
+<%- include("partials/header.ejs")%>
+
+<%if(locals.stuff){ for(i=0; i<stuff.length; i++){%>
+    <ul>
+    <li>
+        <form action="/viewCard" method="post">
+        <button type="submit" class="viewLink">
+        <%=stuff[i].title%>
+    </button>
+</form>
+    </li>
+</ul>
+<%}}%>
+     
+    
+ 
